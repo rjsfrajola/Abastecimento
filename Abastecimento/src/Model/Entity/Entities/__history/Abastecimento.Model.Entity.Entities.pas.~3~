@@ -1,0 +1,48 @@
+unit Abastecimento.Model.Entity.Entities;
+
+interface
+
+uses
+  Abastecimento.Model.Entity.Interfaces,
+  Abastecimento.Model.Abastecimentos;
+
+type
+  TEntity = class(TinterfacedObject, iEntity)
+  private
+    FModelBanco: TAbastecimento;
+    constructor Create;
+    destructor Destroy;override;
+  public
+    class function New: iEntity;
+    function Abastecimento: TAbastecimento;
+  end;
+
+implementation
+
+{ TEntity }
+
+function TEntity.Abastecimento: TAbastecimento;
+begin
+  Result := FModelBanco;
+end;
+
+constructor TEntity.Create;
+begin
+  FModelBanco := TAbastecimento.Create;
+end;
+
+destructor TEntity.Destroy;
+begin
+  if Assigned(FModelBanco) then
+    FModelBanco.Free;
+
+  inherited;
+end;
+
+class function TEntity.New: iEntity;
+begin
+  Result := Self.Create;
+end;
+
+end.
+

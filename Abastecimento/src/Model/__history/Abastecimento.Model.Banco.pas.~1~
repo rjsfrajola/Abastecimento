@@ -1,0 +1,44 @@
+unit Abastecimento.Model.Banco;
+
+interface
+
+uses
+  Abastecimento.Dao.Atributo,
+  Abastecimento.Dao.PersistentObject;
+
+type
+  [TableName('BANCO')]
+  TBanco = class(TPersistentObject)
+  private
+    FDescricao: string;
+    FCodigo: integer;
+    FDataAlteracao: TDateTime;
+    FDataInclusao: TDateTime;
+    FTipoConta: string;
+    FSaldoAtual: Currency;
+  public
+    [FieldName('A1_ID')]
+    [PrimaryKey('A1_ID')]
+    property Codigo: integer read FCodigo write FCodigo;
+
+    [FieldName('A1_DESCRICAO')]
+    property Descricao: string read FDescricao write FDescricao;
+
+    [FieldName('A1_TIPO')]
+    property TipoConta: string read FTipoConta write FTipoConta;
+
+    [FieldName('A1_DATA_INCLUSAO')]
+    property DataInclusao: TDateTime read FDataInclusao write FDataInclusao;
+
+    [FieldName('A1_DATA_ALTERACAO')]
+    property DataAlteracao: TDateTime read FDataAlteracao write FDataAlteracao;
+
+    [FieldName('A1_SALDO_ATUAL')]
+    property SaldoAtual: Currency read FSaldoAtual write FSaldoAtual;
+
+  end;
+
+implementation
+
+
+end.
