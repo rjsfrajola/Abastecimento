@@ -1,3 +1,0 @@
-[BANCO]
-NOME=ABASTECIMENTO
-CAMINHO=C:\Users\Ronaldo-PC\Desktop\Abastecimento\src\Data\ABASTECIMENTO.FDB
